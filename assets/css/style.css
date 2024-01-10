@@ -1,0 +1,81 @@
+/* Estilos da página index .html*/
+
+.center {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-flow: column; /* Alterado para uma coluna em telas menores */
+    justify-content: center;
+    align-items: center;
+}
+
+.container > div {
+    max-width: 1000px; 
+    margin: 0 auto; 
+}
+
+.container li a {
+    text-decoration: none;
+    color:black;
+}
+
+.container li a:hover {
+    color: gray;
+}
+
+.p-30 {
+    padding: 30px;
+}
+
+.increased-padding {
+    padding: 30px;
+}
+
+.wh {
+    width: 500px;
+}
+
+#menu li {
+display: inline;
+padding: 15px;
+}
+
+#menu li a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+#menu li a:hover {
+    color: gray;
+}
+
+/* Media query para telas menores */
+@media (max-width: 600px) {
+    .container {
+        flex-flow: column; /* Manter como coluna para telas menores */
+    }
+
+    .wh {
+        width: 100%; /* Ajusta a largura para ocupar 100% da largura da tela */
+    }
+}
+
+/* Media query para telas maiores (desktops, por exemplo) */
+@media (min-width: 900px) {
+    .container {
+        flex-flow: row; /* Altera para linha em telas maiores */
+    }
+}
+
+@media (min-width: 600px) {
+    .container > div {
+        flex-flow: row;
+        max-width: 800px; 
+    }
+}
+
+
+/* Estilos da página contato.html
