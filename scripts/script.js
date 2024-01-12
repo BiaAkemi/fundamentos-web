@@ -18,8 +18,8 @@ function validaNome() {
     txtNome.innerHTML = "Nome inválido";
     txtNome.style.color = "red";
   } else {
-    txtNome.innerHTML = "Nome válido";
-    txtNome.style.color = "green";
+    txtNome.innerHTML = "";
+    nomeOk = true
   }
 }
 
@@ -30,8 +30,8 @@ function validaEmail() {
     txtEmail.innerHTML = "Email inválido";
     txtEmail.style.color = "red";
   } else {
-    txtEmail.innerHTML = "E-mail válido";
-    txtEmail.style.color = "green";
+    txtEmail.innerHTML = "";
+    emailOk = true
   }
 }
 
@@ -47,8 +47,41 @@ function validaCEP() {
     txtCEP.innerHTML = "CEP inválido";
     txtCEP.style.color = "red";
   } else {
-    txtCEP.innerHTML = "CEP válido";
-    txtCEP.style.color = "green";
+    txtCEP.innerHTML = "";
+    cepOk = true
   }
 }
 
+function validaDatas() {
+  let txtDataInicio = document.querySelector("#txtDataInicio");
+  let txtDataFim = document.querySelector("#txtDataFim");
+
+  let dataInicio = new Date(document.querySelector("#dataInicio").value);
+  let dataFim = new Date(document.querySelector("#dataFim").value);
+
+  // Verifica se a data de início é menor que a data de término
+  if (dataInicio > dataFim) {
+    txtDataInicio.innerHTML =
+      "Data de início deve ser anterior à data de término";
+    txtDataInicio.style.color = "red";
+    txtDataFim.innerHTML =
+      "Data de término deve ser posterior à data de início";
+    txtDataFim.style.color = "red";
+  } else {
+    txtDataInicio.innerHTML = "";
+    txtDataFim.innerHTML = "";
+    dataOk = true
+  }
+}
+
+// Adiciona um ouvinte de evento para chamar a função sempre que as datas forem alteradas
+document.querySelector("#dataInicio").addEventListener("input", validaDatas);
+document.querySelector("#dataFim").addEventListener("input", validaDatas);
+
+function enviar() {
+    if (nomeOk == true && emailOk == true && cepOk == true && dataOk == true) {
+        alert ('Formulário enviado com sucesso!')
+    } else {
+        alert ('Por favor, preencha os dados corretamente antes de enviar.')
+    }
+}
